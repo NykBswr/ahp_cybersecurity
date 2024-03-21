@@ -10,7 +10,7 @@
 </button>
 
 <aside id="default-sidebar"
-    class="fixed left-0 top-0 z-40 h-screen w-64 -translate-x-full transition-transform sm:translate-x-0"
+    class="fixed left-0 top-0 z-40 h-screen w-72 -translate-x-full transition-transform sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full overflow-y-auto bg-gray-50 py-10 lg:bg-transparent">
         <ul class="space-y-2 text-lg font-semibold">
@@ -21,37 +21,37 @@
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Kriteria</span>
                 </a>
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Bobot Kriteria</span>
                 </a>
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Alternatif</span>
                 </a>
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Nilai Bobot Alternatif</span>
                 </a>
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Perhitungan</span>
                 </a>
             </li>
             <li>
                 <a href="#"
-                    class="group flex items-center px-5 py-2 text-white hover:bg-white lg:hover:text-dark">
+                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
                     <span class="ms-3 flex-1 whitespace-nowrap">Back to Home</span>
                 </a>
             </li>

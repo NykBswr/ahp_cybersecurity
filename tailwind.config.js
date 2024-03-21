@@ -12,7 +12,7 @@ module.exports = {
                 'background-predict': "url('/public/img/background-predict.svg')",
             },
             colors: {
-                dark: "#050C28",
+                dark: "#1A1840",
                 primary: "#FFFDFA",
                 secondary: "#131415",
                 tertiary: "#222228",
