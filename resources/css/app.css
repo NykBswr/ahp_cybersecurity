@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.shadowBotPurple {
+    background: linear-gradient(180deg, rgba(217, 217, 217, 0.00) 48.5%, #302B5F 100%);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.bg-predict {
+    border-top-left-radius: 50px;
+}
+
+.profileStat .garisStat,
+.profileStat .adStat {
+    opacity: 0;
+    height: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 2.5s ease;
+}
+
+.profileStat:hover .garisStat,
+.profileStat:hover .adStat,
+.profileStat:hover .textStat {
+    max-height: 1000px;
+    opacity: 1;
+    height: auto;
+    text-shadow: 2px 2px black;
+}

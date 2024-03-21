@@ -1,0 +1,16 @@
+<svg width="400" height="467" viewBox="0 0 400 467" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="200" cy="200" r="200" fill="url(#paint0_radial_3_331)"/>
+<path opacity="0.1" d="M313.553 222.504C328.368 184.786 348.131 165.663 391.759 144.216C402.853 180.032 403.804 221.553 387.322 270.365C320.182 286.93 297.617 263.075 313.553 222.504Z" fill="black"/>
+<path opacity="0.05" fill-rule="evenodd" clip-rule="evenodd" d="M70.6813 135.494C70.6813 135.494 61.4894 107.918 100.158 76.2226C138.827 44.5268 168.621 57.2052 172.424 60.0578C172.424 60.0578 179.435 64.5744 174.326 69.5665C168.511 75.249 162.07 79.1042 153.211 84.4066C146.62 88.3518 138.691 93.0981 128.684 99.9944C113.348 110.564 109.937 113.816 104.628 118.876C101.818 121.556 98.4758 124.741 92.5512 129.788C75.4355 144.368 70.6813 135.494 70.6813 135.494ZM62.757 199.519C71.3345 199.519 78.2879 189.869 78.2879 177.966C78.2879 166.062 71.3345 156.413 62.757 156.413C54.1796 156.413 46.9092 166.062 46.9092 177.966C46.9092 189.869 54.1796 199.519 62.757 199.519Z" fill="white"/>
+<ellipse cx="202" cy="394.5" rx="150" ry="72.5" fill="url(#paint1_radial_3_331)" fill-opacity="0.5"/>
+<defs>
+<radialGradient id="paint0_radial_3_331" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200.317 208.875) rotate(90) scale(284.311 290.175)">
+<stop stop-color="#141040"/>
+<stop offset="1" stop-color="#4C4480"/>
+</radialGradient>
+<radialGradient id="paint1_radial_3_331" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(202 394.5) rotate(90) scale(72.5 150)">
+<stop stop-color="#AEAED3"/>
+<stop offset="1" stop-color="#3B3BD3" stop-opacity="0"/>
+</radialGradient>
+</defs>
+</svg>
