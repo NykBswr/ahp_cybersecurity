@@ -16,6 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('profile-kelompok.main');
 });
-Route::get('/analyst', function () {
-    return view('dashboard.main');
+Route::get('/dashboard', function () {
+    return view('dashboard.criteria.main');
+});
+Route::get('/dashboard/criteria', function () {
+    return view('dashboard.criteria.main');
+});
+Route::get('/dashboard/criteriaWeight', function () {
+    return view('dashboard.criteriaWeight.main');
+});
+Route::get('/dashboard/alternative', function () {
+    return view('dashboard.alternative.main');
+});
+Route::get('/dashboard/alternativeWeight', function () {
+    return view('dashboard.alternativeWeight.main');
 });

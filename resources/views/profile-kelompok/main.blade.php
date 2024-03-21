@@ -10,7 +10,7 @@
                 <a class="h-14 w-52 border-b-8 border-purple1 text-center text-2xl font-semibold uppercase text-white hover:border-purple2 hover:text-purple2"
                     href="#about">About</a>
                 <a class="h-14 w-52 border-b-8 border-purple1 text-center text-2xl font-semibold uppercase text-white hover:border-purple2 hover:text-purple2"
-                    href="/analyst">Analyst</a>
+                    href="/dashboard">Analyst</a>
             </div>
         </nav>
         <section id="home" class="h-screen w-full py-24">
@@ -78,8 +78,8 @@
                                 <div class='profileStat flex h-full w-full items-end'>
                                     <div class='h-auto w-full items-center justify-center'>
                                         <!-- <div class='garisStat flex w-full items-center justify-center'>
-                                                                    <div class='mt-3 w-[15rem] border border-b border-white'></div>
-                                                                </div> -->
+                                                                        <div class='mt-3 w-[15rem] border border-b border-white'></div>
+                                                                    </div> -->
                                         <div class='adStat flex w-full flex-row items-stretch justify-center'>
                                             <h1 class='mb-5 text-center text-3xl font-bold text-white'>Nayaka Baswara</h1>
                                         </div>
@@ -94,8 +94,8 @@
                                 <div class='profileStat flex h-full w-full items-end'>
                                     <div class='h-auto w-full items-center justify-center'>
                                         <!-- <div class='garisStat flex w-full items-center justify-center'>
-                                                                    <div class='mt-3 w-[15rem] border border-b border-white'></div>
-                                                                </div> -->
+                                                                        <div class='mt-3 w-[15rem] border border-b border-white'></div>
+                                                                    </div> -->
                                         <div class='adStat flex w-full flex-row items-stretch justify-center'>
                                             <h1 class='mb-5 text-center text-3xl font-bold text-white'>Nayaka Baswara</h1>
                                         </div>
@@ -112,8 +112,8 @@
                                 <div class='profileStat flex h-full w-full items-end'>
                                     <div class='h-auto w-full items-center justify-center'>
                                         <!-- <div class='garisStat flex w-full items-center justify-center'>
-                                                                    <div class='mt-3 w-[15rem] border border-b border-white'></div>
-                                                                </div> -->
+                                                                        <div class='mt-3 w-[15rem] border border-b border-white'></div>
+                                                                    </div> -->
                                         <div class='adStat flex w-full flex-row items-stretch justify-center'>
                                             <h1 class='mb-5 text-center text-3xl font-bold text-white'>Nayaka Baswara</h1>
                                         </div>
@@ -128,8 +128,8 @@
                                 <div class='profileStat flex h-full w-full items-end'>
                                     <div class='h-auto w-full items-center justify-center'>
                                         <!-- <div class='garisStat flex w-full items-center justify-center'>
-                                                                    <div class='mt-3 w-[15rem] border border-b border-white'></div>
-                                                                </div> -->
+                                                                        <div class='mt-3 w-[15rem] border border-b border-white'></div>
+                                                                    </div> -->
                                         <div class='adStat flex w-full flex-row items-stretch justify-center'>
                                             <h1 class='mb-5 text-center text-3xl font-bold text-white'>Nayaka Baswara</h1>
                                         </div>

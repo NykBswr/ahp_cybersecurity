@@ -13,46 +13,46 @@
     class="fixed left-0 top-0 z-40 h-screen w-72 -translate-x-full transition-transform sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full overflow-y-auto bg-gray-50 py-10 lg:bg-transparent">
-        <ul class="space-y-2 text-lg font-semibold">
+        <ul class="text-lg font-semibold">
             <li class="mb-10">
                 <a class="flex items-center justify-center" href="/"> <img class="h-auto w-28"
                         src="{{ URL::asset('/img/logo-white.svg') }}" alt="">
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Kriteria</span>
+                <a href="/dashboard/criteria"
+                    class="{{ (Request::is('dashboard') ? 'bg-white text-dark' : Request::is('dashboard/criteria')) ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Criteria</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Bobot Kriteria</span>
+                <a href="/dashboard/criteriaWeight"
+                    class="{{ Request::is('dashboard/criteriaWeight') ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Criteria Weight</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Alternatif</span>
+                <a href="/dashboard/alternative"
+                    class="{{ Request::is('dashboard/alternative') ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Alternative</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Nilai Bobot Alternatif</span>
+                <a href="/dashboard/alternativeWeight"
+                    class="{{ Request::is('dashboard/alternativeWeight') ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Alternative Weight</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Perhitungan</span>
+                <a href="/dashboard/calculate"
+                    class="{{ Request::is('dashboard/calculate') ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Calculation</span>
                 </a>
             </li>
             <li>
-                <a href="#"
-                    class="group flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3 flex-1 whitespace-nowrap">Back to Home</span>
+                <a href="/"
+                    class="text-whitegroup flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
+                    <span class="ms-3">Back to Home</span>
                 </a>
             </li>
         </ul>
