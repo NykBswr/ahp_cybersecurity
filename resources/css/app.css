@@ -38,3 +38,8 @@ body {
     transition: 500ms;
     background: linear-gradient(-136deg, #302B5F 48.5%, #B0A5F7 100%);
 }
+
+.gradcolor2 {
+    border: 2px solid;
+    border-image-slice: 1;
+}

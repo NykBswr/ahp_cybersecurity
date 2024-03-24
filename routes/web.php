@@ -31,3 +31,6 @@ Route::get('/dashboard/alternative', function () {
 Route::get('/dashboard/alternativeWeight', function () {
     return view('dashboard.alternativeWeight.main');
 });
+Route::get('/dashboard/calculate', function () {
+return view('dashboard.calculation.main');
+});

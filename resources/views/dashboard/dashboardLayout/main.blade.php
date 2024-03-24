@@ -7,7 +7,9 @@
 
         @include('partials.sidebar')
 
-        @yield('dashboard')
+        <div class="bg-predict relative h-screen w-auto bg-white p-14 sm:ml-72">
+            @yield('dashboard')
+        </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     </body>
