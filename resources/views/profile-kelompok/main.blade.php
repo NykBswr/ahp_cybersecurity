@@ -1,6 +1,7 @@
 @extends('layout.main')
 
 @section('container')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
     <body class="h-screen w-full scroll-smooth bg-background-profile bg-cover bg-no-repeat object-fill">
         <nav class="navbar z-[25] h-auto w-full py-10">
@@ -18,9 +19,12 @@
             </div>
             <div class="flex flex-col items-center">
                 <div class="absolute mt-12 flex flex-col items-center justify-start">
-                    <h1 class="text-center text-8xl font-bold text-white">We Help Analyze</h1>
-                    <h1 class="text-center text-8xl font-bold text-white">Best Security</h1>
-                    <h1 class="text-center text-8xl font-bold text-white">Investment</h1>
+                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">We Help
+                        Analyze</h1>
+                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">Best
+                        Security</h1>
+                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">Investment
+                    </h1>
                 </div>
                 <div class="mt-64 flex items-center justify-center">
                     <img class="absolute mb-14" src="{{ URL::asset('/img/Key.svg') }}" alt="">
@@ -89,17 +93,77 @@
                         sit amet consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                         pellentesque lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque lorem ipsum dolor
                         sit amet consectetur adipiscing elit.</p>
-                    <div
-                        class="gradcolor2 mt-14 w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-5">
-                        <div class="px-5 py-2">
-                            <h1 class="text-center text-2xl font-semibold text-white">Lorem Ipsum</h1>
-                            <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
-                                consectetur
-                                adipiscing
-                                elit. Ut
-                                pellentesque lorem ipsum dolor sit
-                                amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit. </p>
+
+                    <div id="animation-carousel" class="relative mt-14 w-full" data-carousel="static">
+                        <!-- Carousel wrapper -->
+                        <div class="relative h-[13rem] overflow-hidden rounded-lg">
+                            <!-- Item 1 -->
+                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
+                                data-carousel-item>
+                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
+                                    <h1 class="text-center text-2xl font-semibold text-white">Lorem Ipsum</h1>
+                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing
+                                        elit. Ut
+                                        pellentesque lorem ipsum dolor sit
+                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
+                                data-carousel-item>
+                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
+                                    <h1 class="text-center text-2xl font-semibold text-white">LNAYA</h1>
+                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing
+                                        elit. Ut
+                                        pellentesque lorem ipsum dolor sit
+                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
+                                data-carousel-item>
+                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
+                                    <h1 class="text-center text-2xl font-semibold text-white">Lorem Ipsum</h1>
+                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
+                                        consectetur
+                                        adipiscing
+                                        elit. Ut
+                                        pellentesque lorem ipsum dolor sit
+                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+                        <!-- Slider indicators -->
+                        {{-- <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
+                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="true"
+                                aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="false"
+                                aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="false"
+                                aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                        </div> --}}
+                        <!-- Slider controls -->
+                        <button type="button"
+                            class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+                            data-carousel-prev>
+                            <span class="inline-flex h-full w-36 items-center justify-center bg-transparent">
+                                <span class="sr-only">Previous</span>
+                            </span>
+                        </button>
+                        <button type="button"
+                            class="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
+                            data-carousel-next>
+                            <span class="inline-flex h-full w-36 items-center justify-center bg-transparent">
+                                <span class="sr-only">Next</span>
+                            </span>
+                        </button>
                     </div>
                 </div>
                 <div class="flex w-1/2 flex-col items-center justify-center px-10">
@@ -110,8 +174,8 @@
                 </div>
             </div>
         </section>
-        <section id="ourteam" class="mb-52 h-screen w-full px-20 py-24">
-            <div class="flex pt-44">
+        <section id="ourteam" class="mt-20 h-screen w-full px-20 py-24">
+            <div class="flex">
                 <div class="w-1/2 px-10">
                     <h1 class="mb-10 text-start text-6xl font-bold text-white">Our Team</h1>
                     <div class="flex items-center justify-start pl-64">
@@ -188,4 +252,6 @@
             <div class="border-2 border-b border-purple2"></div>
             <h1 class="pt-10 text-center font-bold text-white">© 2024 NykBswr. All rights reserved.</h1>
         </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     </body>
