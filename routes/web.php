@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\AlternativeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,21 +18,31 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('profile-kelompok.main');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard.criteria.main');
-});
-Route::get('/dashboard/criteria', function () {
-    return view('dashboard.criteria.main');
-});
+
+// Criteria
+Route::get('/dashboard', [CriteriaController::class, 'index']);
+Route::get('/dashboard/criteria', [CriteriaController::class, 'index']);
+Route::post('/dashboard/criteria/added', [CriteriaController::class, 'store']);
+Route::put('/dashboard/criteria/update/{criteria}', [CriteriaController::class, 'update']);
+Route::delete('/dashboard/criteria/delete/{criteria}', [CriteriaController::class,'destroy'])->name('criterias.destroy');
+
+
 Route::get('/dashboard/criteriaWeight', function () {
     return view('dashboard.criteriaWeight.main');
 });
-Route::get('/dashboard/alternative', function () {
-    return view('dashboard.alternative.main');
-});
+
+// Alternative 
+Route::get('/dashboard/alternative', [AlternativeController::class, 'index']);
+Route::post('/dashboard/alternative/added', [AlternativeController::class, 'store']);
+Route::put('/dashboard/alternative/update/{alternative}', [AlternativeController::class, 'update']);
+Route::delete('/dashboard/alternative/delete/{alternative}',[AlternativeController::class,'destroy'])->name('alternatives.destroy');
+
+
 Route::get('/dashboard/alternativeWeight', function () {
     return view('dashboard.alternativeWeight.main');
 });
+
+// Calculation
 Route::get('/dashboard/calculate', function () {
 return view('dashboard.calculation.main');
 });
