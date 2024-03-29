@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Criteria;
 use App\Models\Alternative;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreAlternativeRequest;
@@ -14,7 +15,7 @@ class AlternativeController extends Controller
      */
     public function index()
     {
-        $alternative = Alternative::all();
+        $alternative = Alternative::orderBy('code')->get();
 
         return view('dashboard.alternative.main', [
             'alternative' => $alternative
@@ -52,9 +53,15 @@ class AlternativeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alternative $alternative)
+    public function show()
     {
-        //
+        $alternative = Alternative::orderBy('code')->get();
+        $criteria = Criteria::orderBy('code')->get();
+
+        return view('dashboard.alternativeWeight.main', [
+            'alternative' => $alternative,
+            'criteria' => $criteria
+        ]);
     }
 
     /**

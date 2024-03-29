@@ -27,6 +27,16 @@ class AlternativeSeeder extends Seeder
                 // Alternative 3
                 'code' => 'A2',
                 'name' => 'Alternative 3',
+            ],
+            [
+                // Alternative 4
+                'code' => 'A3',
+                'name' => 'Alternative 4',
+            ],
+            [
+                // Alternative 5
+                'code' => 'A4',
+                'name' => 'Alternative 5',
             ]
         ];
 

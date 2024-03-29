@@ -5,9 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Criteria extends Model
+class CriteriaWeight extends Model
 {
-    protected $fillable = ['name'];
-
+    protected $guarded = [];
+    
     use HasFactory;
 }

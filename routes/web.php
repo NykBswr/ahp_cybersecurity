@@ -26,10 +26,8 @@ Route::post('/dashboard/criteria/added', [CriteriaController::class, 'store']);
 Route::put('/dashboard/criteria/update/{criteria}', [CriteriaController::class, 'update']);
 Route::delete('/dashboard/criteria/delete/{criteria}', [CriteriaController::class,'destroy'])->name('criterias.destroy');
 
-
-Route::get('/dashboard/criteriaWeight', function () {
-    return view('dashboard.criteriaWeight.main');
-});
+Route::get('/dashboard/criteriaWeight', [CriteriaController::class, 'show']);
+Route::put('/dashboard/criteriaWeight/added/{criterion1}', [CriteriaController::class, 'addWeight']);
 
 // Alternative 
 Route::get('/dashboard/alternative', [AlternativeController::class, 'index']);
@@ -37,10 +35,8 @@ Route::post('/dashboard/alternative/added', [AlternativeController::class, 'stor
 Route::put('/dashboard/alternative/update/{alternative}', [AlternativeController::class, 'update']);
 Route::delete('/dashboard/alternative/delete/{alternative}',[AlternativeController::class,'destroy'])->name('alternatives.destroy');
 
+Route::get('/dashboard/alternativeWeight', [AlternativeController::class, 'show']);
 
-Route::get('/dashboard/alternativeWeight', function () {
-    return view('dashboard.alternativeWeight.main');
-});
 
 // Calculation
 Route::get('/dashboard/calculate', function () {
