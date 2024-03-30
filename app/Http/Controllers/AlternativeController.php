@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Criteria;
 use App\Models\Alternative;
 use Illuminate\Http\Request;
+use App\Models\CriteriaWeight;
 use App\Http\Requests\StoreAlternativeRequest;
 use App\Http\Requests\UpdateAlternativeRequest;
 
@@ -60,21 +61,47 @@ class AlternativeController extends Controller
 
         return view('dashboard.alternativeWeight.main', [
             'alternative' => $alternative,
-            'criteria' => $criteria
+            'criteria' => $criteria,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alternative $alternative)
+    public function addWeight(Alternative $alternative, Request $request)
     {
-        //
+        if ($request->filled('code') && $request->filled('name')) {
+            // Jika code dan name telah diberikan nilai, update keduanya
+            $alternative->update([
+                'code' => $request->input('code'),
+                'name' => $request->input('name'),
+            ]);
+        } elseif ($request->filled('code')) {
+            // Jika hanya code yang telah diberikan nilai, update code
+            $alternative->update([
+                'code' => $request->input('code'),
+            ]);
+        } elseif ($request->filled('name')) {
+            // Jika hanya name yang telah diberikan nilai, update name
+            $alternative->update([
+                'name' => $request->input('name'),
+            ]);
+        }
+
+        $criteria = Criteria::all();
+        // Mengupdate nilai kriteria jika ada perubahan
+        foreach ($criteria as $criterion) {
+            $colName = 'C' . $criterion->id;
+            if ($request->filled($colName)) {
+                $weight = $request->input($colName);
+                $alternative->$colName = $weight;
+                $alternative->save();
+            }
+        }
+
+        return redirect()->back()->with('success', 'Alternative updated successfully!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Alternative $alternative)
     {
         if ($request->input('name') !== null){

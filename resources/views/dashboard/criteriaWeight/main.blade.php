@@ -43,8 +43,9 @@
                                     if ($value instanceof Illuminate\Database\Eloquent\Collection) {
                                         $weight = $value->where('id', $criterion1->id)->first();
                                     }
+
                                     // Cek apakah perlu input atau tidak tergantung pada posisi perbandingan
-                                    $inputNeeded = $criterion1->id < $criterion2->id ? true : false;
+                                    $inputNeeded = $criterion1->code < $criterion2->code ? true : false;
                                 @endphp
                                 @if ($inputNeeded)
                                     <td class="p-0 text-center">

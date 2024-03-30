@@ -36,7 +36,7 @@ Route::put('/dashboard/alternative/update/{alternative}', [AlternativeController
 Route::delete('/dashboard/alternative/delete/{alternative}',[AlternativeController::class,'destroy'])->name('alternatives.destroy');
 
 Route::get('/dashboard/alternativeWeight', [AlternativeController::class, 'show']);
-
+Route::put('/dashboard/alternativeWeight/added/{alternative}', [AlternativeController::class, 'addWeight']);
 
 // Calculation
 Route::get('/dashboard/calculate', function () {

@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class AlternativeSeeder extends Seeder
 {
@@ -12,6 +14,20 @@ class AlternativeSeeder extends Seeder
      */
     public function run(): void
     {
+        // Jumlah kolom yang ingin Anda tambahkan
+        $numberOfColumns = 3;
+
+        // Loop untuk membuat kolom dengan nama
+        for ($i = 1; $i <= $numberOfColumns; $i++) {
+            $columnName = 'C' . $i;
+
+            // Tambahkan kolom jika belum ada
+            Schema::table('alternatives', function (Blueprint $table) use ($columnName) {
+                if (!Schema::hasColumn('alternatives', $columnName)) {
+                    $table->decimal($columnName, 8, 2)->nullable()->after('id');
+                }
+            });
+        }
         $fillAlternative = [
             [
                 // Alternative 1
@@ -28,16 +44,6 @@ class AlternativeSeeder extends Seeder
                 'code' => 'A2',
                 'name' => 'Alternative 3',
             ],
-            [
-                // Alternative 4
-                'code' => 'A3',
-                'name' => 'Alternative 4',
-            ],
-            [
-                // Alternative 5
-                'code' => 'A4',
-                'name' => 'Alternative 5',
-            ]
         ];
 
         foreach ($fillAlternative as $alternativeData) {

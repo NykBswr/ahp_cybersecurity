@@ -8,6 +8,7 @@ use App\Models\CriteriaWeight;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use App\Http\Requests\UpdateCriteriaRequest;
+use App\Models\Alternative;
 
 class CriteriaController extends Controller
 {
@@ -37,11 +38,18 @@ class CriteriaController extends Controller
         // Menambahkan kolom baru untuk kriteria baru dalam tabel CriteriaWeight
         // Memberi nama kolom untuk perbandingan ini
         $columnName = 'W' . $criteria->id;
+        $columnName2 = 'C' . $criteria->id;
         
         // Cek apakah kolom sudah ada, jika belum tambahkan kolom baru
         Schema::table('criteria_weights', function (Blueprint $table) use ($columnName) {
             if (!Schema::hasColumn('criteria_weights', $columnName)) {
                 $table->decimal($columnName, 8, 2)->nullable()->after('id');
+            }
+        });
+
+        Schema::table('alternatives', function (Blueprint $table) use ($columnName2) {
+            if (!Schema::hasColumn('alternatives', $columnName2)) {
+                $table->decimal($columnName2, 8, 2)->nullable()->after('id');
             }
         });
 
@@ -95,8 +103,6 @@ class CriteriaController extends Controller
 
     public function update(Request $request, Criteria $criteria)
     {
-        $id = $request->id;
-        $criteria = $criteria->where($criteria->id, $id)->first();
         if ($request->input('name') !== null){
             $request->validate(['name' => 'required|string|unique:criterias,name']);
             $criteria->update(['name' => $request->input('name')]);
@@ -105,8 +111,26 @@ class CriteriaController extends Controller
         return redirect('/dashboard/criteria')->with('success', 'The criteria detail was updated successfully');
     }
 
-    public function destroy(Criteria $criteria)
+    public function destroy(Criteria $criteria, Request $request, CriteriaWeight $weight, Alternative $alternative)
     {
+        $criteriaId = $request->criteriaId;
+        $weight->where('id', $criteriaId)->delete();
+        $colName = 'W' . $criteriaId;
+        $colName = 'C' . $criteriaId;
+
+        Schema::table('alternatives', function (Blueprint $table) use ($colName) {
+        if (Schema::hasColumn('alternatives', $colName)) {
+        $table->dropColumn($colName);
+        }
+        });
+
+        Schema::table('criteria_weights', function (Blueprint $table) use ($colName) {
+            if (Schema::hasColumn('criteria_weights', $colName)) {
+                $table->dropColumn($colName);
+            }
+        });
+
+        $alternative->delete();
         $criteria->delete();
 
         return redirect('/dashboard/criteria')->with('success', 'Criteria deleted successfully!');

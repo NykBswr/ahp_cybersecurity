@@ -32,11 +32,12 @@
                         </td>
                         <td class="px-6 py-4 text-center">
                             <!-- Update Modal -->
-                            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
+                            <button data-modal-target="crud-modal{{ $alternative->id }}"
+                                data-modal-toggle="crud-modal{{ $alternative->id }}"
                                 class="mr-1 font-medium hover:text-blue-500 hover:underline" type="button">
                                 Update
                             </button>
-                            <div id="crud-modal" tabindex="-1" aria-hidden="true"
+                            <div id="crud-modal{{ $alternative->id }}" tabindex="-1" aria-hidden="true"
                                 class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
                                 <div class="relative max-h-full w-full max-w-md p-4">
                                     <div class="relative rounded-lg bg-white shadow">
@@ -46,7 +47,7 @@
                                             </h3>
                                             <button type="button"
                                                 class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-dark hover:bg-gray-100"
-                                                data-modal-toggle="crud-modal">
+                                                data-modal-toggle="crud-modal{{ $alternative->id }}">
                                                 <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                     fill="none" viewBox="0 0 14 14">
                                                     <path stroke="currentColor" stroke-linecap="round"
@@ -80,12 +81,13 @@
                             {{-- End of Update Modal --}}
 
                             {{-- Delete Modal --}}
-                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                            <button data-modal-target="popup-modal{{ $alternative->id }}"
+                                data-modal-toggle="popup-modal{{ $alternative->id }}"
                                 class="ml-1 rounded-lg font-medium hover:text-red-500 hover:underline" type="button">
                                 Delete
                             </button>
 
-                            <div id="popup-modal" tabindex="-1"
+                            <div id="popup-modal{{ $alternative->id }}" tabindex="-1"
                                 class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
                                 <div class="relative h-auto w-auto p-4">
                                     <div class="relative rounded-lg bg-white shadow">
@@ -102,12 +104,12 @@
                                                 action="{{ route('alternatives.destroy', $alternative->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button data-modal-hide="popup-modal" type="submit"
+                                                <button data-modal-hide="popup-modal{{ $alternative->id }}" type="submit"
                                                     class="inline-flex items-center rounded-lg bg-red-600 px-8 py-2.5 text-center text-base font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-4 focus:ring-red-300">
                                                     Yes
                                                 </button>
                                             </form>
-                                            <button data-modal-hide="popup-modal" type="button"
+                                            <button data-modal-hide="popup-modal{{ $alternative->id }}" type="button"
                                                 class="ms-3 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-base font-medium text-dark hover:bg-gray-100 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100">
                                                 Cancel</button>
                                         </div>
@@ -122,11 +124,11 @@
     </div>
     {{-- Create Alternative --}}
     <div class="mt-10 flex items-center justify-end">
-        <button data-modal-target="crud-modal2" data-modal-toggle="crud-modal2"
+        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal"
             class="gradcolor rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-white hover:text-white" type="button">
             Create
         </button>
-        <div id="crud-modal2" tabindex="-1" aria-hidden="true"
+        <div id="crud-modal" tabindex="-1" aria-hidden="true"
             class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
             <div class="relative max-h-full w-full max-w-md p-4">
                 <div class="relative rounded-lg bg-white shadow">
@@ -136,7 +138,7 @@
                         </h3>
                         <button type="button"
                             class="ms-auto inline-flex h-8 w-8 items-center justify-center rounded-lg bg-transparent text-sm text-dark hover:bg-gray-100"
-                            data-modal-toggle="crud-modal2">
+                            data-modal-toggle="crud-modal">
                             <svg class="h-3 w-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                                 viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alternative extends Model
 {
-    protected $fillable = ['name'];
+    protected $guarded = ['id'];
+
     use HasFactory;
 }
