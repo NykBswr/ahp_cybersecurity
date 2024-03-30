@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\AlternativeController;
+use App\Http\Controllers\CalculationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,4 @@ Route::get('/dashboard/alternativeWeight', [AlternativeController::class, 'show'
 Route::put('/dashboard/alternativeWeight/added/{alternative}', [AlternativeController::class, 'addWeight']);
 
 // Calculation
-Route::get('/dashboard/calculate', function () {
-return view('dashboard.calculation.main');
-});
+Route::get('/dashboard/calculate', [CalculationController::class, 'index']);

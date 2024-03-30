@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Criteria;
 use App\Models\CriteriaWeight;
-use App\Http\Requests\StoreCriteriaWeightRequest;
-use App\Http\Requests\UpdateCriteriaWeightRequest;
 
-class CriteriaWeightController extends Controller
+class CalculationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $criteria = Criteria::orderBy('code')->get();
+        $weight = CriteriaWeight::get();
+
+        return view('dashboard.calculation.main', [
+            'criteria' => $criteria,
+            'value' => $weight,
+        ]);
     }
 
     /**
@@ -27,7 +32,7 @@ class CriteriaWeightController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCriteriaWeightRequest $request)
+    public function store()
     {
         //
     }
@@ -51,7 +56,7 @@ class CriteriaWeightController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCriteriaWeightRequest $request, CriteriaWeight $criteriaWeight)
+    public function update(CriteriaWeight $criteriaWeight)
     {
         //
     }
