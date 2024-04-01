@@ -8,7 +8,7 @@
         @include('partials.sidebar')
 
         <div
-            class="bg-predict {{ Request::is('dashboard/calculate') ? 'h-auto' : 'h-screen ' }} relative w-auto bg-white p-14 sm:ml-72">
+            class="bg-predict {{ Request::is('dashboard/calculate') && count($criteria) > 2 ? 'h-auto min-h-full' : 'h-screen' }} relative w-auto bg-white p-14 sm:ml-72">
             @yield('dashboard')
         </div>
 

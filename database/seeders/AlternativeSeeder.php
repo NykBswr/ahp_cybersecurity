@@ -15,7 +15,7 @@ class AlternativeSeeder extends Seeder
     public function run(): void
     {
         // Jumlah kolom yang ingin Anda tambahkan
-        $numberOfColumns = 3;
+        $numberOfColumns = 7;
 
         // Loop untuk membuat kolom dengan nama
         for ($i = 1; $i <= $numberOfColumns; $i++) {
@@ -30,19 +30,158 @@ class AlternativeSeeder extends Seeder
         }
         $fillAlternative = [
             [
-                // Alternative 1
                 'code' => 'A0',
-                'name' => 'Alternative 1',
+                'name' =>'Horangi',
+                'C1' => 7, // Kolom kriteria 1
+                'C2' => 8, // Kolom kriteria 2
+                'C3' => 7, // Kolom kriteria 3
+                'C4' => 8, // Kolom kriteria 4
+                'C5' => 10, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 10, // Kolom kriteria 7
             ],
             [
-                // Alternative 2
                 'code' => 'A1',
-                'name' => 'Alternative 2',
+                'name' =>'Fortinet',
+                'C1' => 8, // Kolom kriteria 1
+                'C2' => 9, // Kolom kriteria 2
+                'C3' => 10, // Kolom kriteria 3
+                'C4' => 7, // Kolom kriteria 4
+                'C5' => 8, // Kolom kriteria 5
+                'C6' => 10, // Kolom kriteria 6
+                'C7' => 17, // Kolom kriteria 7
             ],
             [
-                // Alternative 3
                 'code' => 'A2',
-                'name' => 'Alternative 3',
+                'name' =>'Cisco',
+                'C1' => 8, // Kolom kriteria 1
+                'C2' => 10, // Kolom kriteria 2
+                'C3' => 8, // Kolom kriteria 3
+                'C4' => 7, // Kolom kriteria 4
+                'C5' => 10, // Kolom kriteria 5
+                'C6' => 10, // Kolom kriteria 6
+                'C7' => 17, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A3',
+                'name' =>'Zscaler',
+                'C1' => 8, // Kolom kriteria 1
+                'C2' => 8, // Kolom kriteria 2
+                'C3' => 10, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 7, // Kolom kriteria 5
+                'C6' => 8, // Kolom kriteria 6
+                'C7' => 7, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A4',
+                'name' =>'Darktrace',
+                'C1' => 7, // Kolom kriteria 1
+                'C2' => 7, // Kolom kriteria 2
+                'C3' => 8, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 8, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 6, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A5',
+                'name' =>'Trend Micro',
+                'C1' => 9, // Kolom kriteria 1
+                'C2' => 7, // Kolom kriteria 2
+                'C3' => 7, // Kolom kriteria 3
+                'C4' => 9, // Kolom kriteria 4
+                'C5' => 10, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 6, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A6',
+                'name' =>'Palo Alto',
+                'C1' => 10, // Kolom kriteria 1
+                'C2' => 10, // Kolom kriteria 2
+                'C3' => 6, // Kolom kriteria 3
+                'C4' => 7, // Kolom kriteria 4
+                'C5' => 8, // Kolom kriteria 5
+                'C6' => 10, // Kolom kriteria 6
+                'C7' => 8, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A7',
+                'name' =>'Secureworks',
+                'C1' => 6, // Kolom kriteria 1
+                'C2' => 6, // Kolom kriteria 2
+                'C3' => 10, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 7, // Kolom kriteria 5
+                'C6' => 6, // Kolom kriteria 6
+                'C7' => 7, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A8',
+                'name' =>'Cybereason',
+                'C1' => 7, // Kolom kriteria 1
+                'C2' => 10, // Kolom kriteria 2
+                'C3' => 10, // Kolom kriteria 3
+                'C4' => 8, // Kolom kriteria 4
+                'C5' => 8, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 6, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A9',
+                'name' =>'Forcepoint',
+                'C1' => 10, // Kolom kriteria 1
+                'C2' => 10, // Kolom kriteria 2
+                'C3' => 7, // Kolom kriteria 3
+                'C4' => 9, // Kolom kriteria 4
+                'C5' => 7, // Kolom kriteria 5
+                'C6' => 10, // Kolom kriteria 6
+                'C7' => 8, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A10',
+                'name' =>'Webroot',
+                'C1' => 7, // Kolom kriteria 1
+                'C2' => 7, // Kolom kriteria 2
+                'C3' => 8, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 7, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 8, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A11',
+                'name' =>'RSA',
+                'C1' => 10, // Kolom kriteria 1
+                'C2' => 9, // Kolom kriteria 2
+                'C3' => 6, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 6, // Kolom kriteria 5
+                'C6' => 8, // Kolom kriteria 6
+                'C7' => 9, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A12',
+                'name' =>'Imperva',
+                'C1' => 10, // Kolom kriteria 1
+                'C2' => 10, // Kolom kriteria 2
+                'C3' => 8, // Kolom kriteria 3
+                'C4' => 10, // Kolom kriteria 4
+                'C5' => 9, // Kolom kriteria 5
+                'C6' => 8, // Kolom kriteria 6
+                'C7' => 8, // Kolom kriteria 7
+            ],
+            [
+                'code' => 'A13',
+                'name' =>'Crowdstrike',
+                'C1' => 10, // Kolom kriteria 1
+                'C2' => 6, // Kolom kriteria 2
+                'C3' => 10, // Kolom kriteria 3
+                'C4' => 9, // Kolom kriteria 4
+                'C5' => 7, // Kolom kriteria 5
+                'C6' => 7, // Kolom kriteria 6
+                'C7' => 10, // Kolom kriteria 7
             ],
         ];
 

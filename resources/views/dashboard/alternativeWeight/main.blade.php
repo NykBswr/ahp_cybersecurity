@@ -5,7 +5,7 @@
 
     @include('partials.alerts')
 
-    <div class="relative overflow-x-auto rounded-xl shadow-md">
+    <div class="relative max-h-[70vh] overflow-x-auto overflow-y-auto rounded-xl shadow-md">
         <table class="w-full border-b text-lg">
             <thead class="bg-dark text-xl text-white">
                 <tr>
@@ -146,5 +146,17 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="mt-10 flex w-full flex-row justify-between">
+        <a href="/dashboard/alternative">
+            <div class="gradcolor rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-white hover:text-white">
+                Back
+            </div>
+        </a>
+        <a href="/dashboard/calculate">
+            <div class="gradcolor rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-white hover:text-white">
+                Next
+            </div>
+        </a>
     </div>
 @endsection

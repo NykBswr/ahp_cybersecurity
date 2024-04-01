@@ -14,20 +14,33 @@ class CriteriaSeeder extends Seeder
     {
         $fillCriteria = [
             [
-                // Criteria 1
                 'code' => 'C0',
+                'name' =>'Confidentially',
+            ],
+            [
+                'code' => 'C1',
                 'name' => 'Integrity',
             ],
             [
-                // Criteria 2
-                'code' => 'C1',
+                'code' => 'C2',
                 'name' => 'Availability',
             ],
             [
-                // Criteria 3
-                'code' => 'C2',
+                'code' => 'C3',
                 'name' => 'Scalability',
-            ]
+            ],
+            [
+                'code' => 'C4',
+                'name' => 'Interoperability',
+            ],
+            [
+                'code' => 'C5',
+                'name' => 'Accountability',
+            ],
+            [
+                'code' => 'C6',
+                'name' => 'Accesibility',
+            ],
         ];
 
         foreach ($fillCriteria as $criteriaData) {

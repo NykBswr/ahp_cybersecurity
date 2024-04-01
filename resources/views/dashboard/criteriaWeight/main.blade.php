@@ -24,7 +24,7 @@
             <tbody>
                 @foreach ($criteria as $criterion1)
                     <tr class="bg-white hover:bg-gray-100">
-                        <th class="whitespace-nowrap px-20 py-4 text-center text-xl font-semibold">
+                        <th class="w-[10vw] whitespace-nowrap px-20 py-4 text-center text-xl font-semibold">
                             {{ $criterion1->name }}
                         </th>
                         @foreach ($criteria as $criterion2)
@@ -64,7 +64,7 @@
                                             </button> --}}
                                             <input type="hidden" name="criterion1_id" value="{{ $criterion1->id }}">
                                             <input type="hidden" name="criterion2_id" value="{{ $criterion2->id }}">
-                                            <input type="number" id="{{ $columnName }}" data-input-counter
+                                            <input type="number" id="{{ $columnName }}" step='0.1' data-input-counter
                                                 name={{ $criterion2->id }} data-input-counter-min="1"
                                                 data-input-counter-max="10.0"
                                                 class="block h-14 w-full border border-dark bg-gray-50 p-0 text-center text-base font-medium text-dark outline outline-dark focus:ring-2 focus:ring-dark"
@@ -96,6 +96,17 @@
                 @endforeach
             </tbody>
         </table>
-
+    </div>
+    <div class="mt-10 flex w-full flex-row justify-between">
+        <a href="/dashboard/criteria">
+            <div class="gradcolor rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-white hover:text-white">
+                Back
+            </div>
+        </a>
+        <a href="/dashboard/alternative">
+            <div class="gradcolor rounded-lg bg-dark px-6 py-2 text-lg font-semibold text-white hover:text-white">
+                Next
+            </div>
+        </a>
     </div>
 @endsection

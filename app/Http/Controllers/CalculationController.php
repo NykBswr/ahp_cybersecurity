@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Criteria;
+use App\Models\Alternative;
 use App\Models\CriteriaWeight;
 
 class CalculationController extends Controller
@@ -14,10 +15,12 @@ class CalculationController extends Controller
     {
         $criteria = Criteria::orderBy('code')->get();
         $weight = CriteriaWeight::get();
+        $alternative = Alternative::orderBy('code')->get();
 
         return view('dashboard.calculation.main', [
             'criteria' => $criteria,
             'value' => $weight,
+            'alternative' => $alternative
         ]);
     }
 

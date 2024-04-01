@@ -13,13 +13,113 @@
     class="fixed left-0 top-0 z-40 h-screen w-72 -translate-x-full transition-transform sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full overflow-y-auto bg-gray-50 py-10 lg:bg-transparent">
-        <ul class="text-lg font-semibold">
-            <li class="mb-10">
-                <a class="flex items-center justify-center" href="/"> <img class="h-auto w-28"
-                        src="{{ URL::asset('/img/logo-white.svg') }}" alt="">
+        <li class="mb-10">
+            <a class="flex items-center justify-center" href="/"> <img class="h-auto w-28"
+                    src="{{ URL::asset('/img/logo-white.svg') }}" alt="">
+            </a>
+        </li>
+        <ul class="relative ml-14 mt-20 border-s border-gray-200 text-lg font-semibold text-white">
+            @php
+                $dashboardActive = Request::is('dashboard');
+                $criteriaActive = Request::is('dashboard/criteria');
+                $criteriaWeightActive = Request::is('dashboard/criteriaWeight');
+                $alternativeActive = Request::is('dashboard/alternative');
+                $alternativeWeightActive = Request::is('dashboard/alternativeWeight');
+                $calculationsActive = Request::is('dashboard/calculations');
+            @endphp
+
+            <li class="mb-10 ms-6">
+                <a href="/dashboard/criteria">
+                    <span
+                        class="{{ $dashboardActive || $criteriaActive ? 'bg-gray-700' : 'bg-green-900' }} absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full ring-4 ring-white">
+                        @if (!$dashboardActive && !$criteriaActive)
+                            <svg class="h-3.5 w-3.5 text-green-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                        @endif
+                    </span>
+                    <h3 class="font-medium leading-tight">Criteria</h3>
                 </a>
+                <p class="text-sm">Step details here</p>
             </li>
-            <li>
+
+            <li class="mb-10 ms-6">
+                <a href="/dashboard/criteriaWeight">
+                    <span
+                        class="{{ $dashboardActive || $criteriaActive || $criteriaWeightActive ? 'bg-gray-700' : 'bg-green-900' }} absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full ring-4 ring-white">
+                        @if (!$dashboardActive && !$criteriaActive && !$criteriaWeightActive)
+                            <svg class="h-3.5 w-3.5 text-green-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                        @endif
+                    </span>
+                    <h3 class="font-medium leading-tight">Criteria Weight</h3>
+                </a>
+                <p class="text-sm">Step details here</p>
+            </li>
+
+            <li class="mb-10 ms-6">
+                <a href="/dashboard/alternative">
+                    <span
+                        class="{{ $dashboardActive || $criteriaActive || $criteriaWeightActive || $alternativeActive ? 'bg-gray-700' : 'bg-green-900' }} absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full ring-4 ring-white">
+                        @if (!$dashboardActive && !$criteriaActive && !$criteriaWeightActive && !$alternativeActive)
+                            <svg class="h-3.5 w-3.5 text-green-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                        @endif
+                    </span>
+                    <h3 class="font-medium leading-tight">Alternative</h3>
+                </a>
+                <p class="text-sm">Step details here</p>
+            </li>
+
+            <li class="mb-10 ms-6">
+                <a href="/dashboard/alternativeWeight">
+                    <span
+                        class="{{ $dashboardActive || $criteriaActive || $criteriaWeightActive || $alternativeActive || $alternativeWeightActive ? 'bg-gray-700' : 'bg-green-900' }} absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full ring-4 ring-white">
+                        @if (!$dashboardActive && !$criteriaActive && !$criteriaWeightActive && !$alternativeActive && !$alternativeWeightActive)
+                            <svg class="h-3.5 w-3.5 text-green-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                        @endif
+                    </span>
+                    <h3 class="font-medium leading-tight">Alternative Weight</h3>
+                </a>
+                <p class="text-sm">Step details here</p>
+            </li>
+
+            <li class="mb-10 ms-6">
+                <a href="/dashboard/calculate">
+                    <span
+                        class="{{ $dashboardActive || $criteriaActive || $criteriaWeightActive || $alternativeActive || $alternativeWeightActive || $calculationsActive ? 'bg-gray-700' : 'bg-green-900' }} absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full ring-4 ring-white">
+                        @if (
+                            !$dashboardActive &&
+                                !$criteriaActive &&
+                                !$criteriaWeightActive &&
+                                !$alternativeActive &&
+                                !$alternativeWeightActive &&
+                                !$calculationsActive)
+                            <svg class="h-3.5 w-3.5 text-green-400" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5" />
+                            </svg>
+                        @endif
+                    </span>
+                    <h3 class="font-medium leading-tight">Calculation</h3>
+                </a>
+                <p class="text-sm">Step details here</p>
+            </li>
+
+            {{-- <li>
                 <a href="/dashboard/criteria"
                     class="{{ (Request::is('dashboard') ? 'bg-white text-dark' : Request::is('dashboard/criteria')) ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
                     <span class="ms-3">Criteria</span>
@@ -48,11 +148,13 @@
                     class="{{ Request::is('dashboard/calculate') ? 'bg-white text-dark' : 'text-white' }} group flex items-center px-8 py-3 hover:bg-white lg:hover:text-dark">
                     <span class="ms-3">Calculation</span>
                 </a>
-            </li>
+            </li> --}}
+        </ul>
+        <ul class="text-lg font-semibold text-white">
             <li>
                 <a href="/"
-                    class="text-whitegroup flex items-center px-8 py-3 text-white hover:bg-white lg:hover:text-dark">
-                    <span class="ms-3">Back to Home</span>
+                    class="group flex items-center justify-center py-3 text-white hover:bg-white lg:hover:text-dark">
+                    <span class="">Back to Home</span>
                 </a>
             </li>
         </ul>
