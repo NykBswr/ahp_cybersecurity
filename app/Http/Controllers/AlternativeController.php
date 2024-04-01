@@ -16,7 +16,7 @@ class AlternativeController extends Controller
      */
     public function index()
     {
-        $alternative = Alternative::orderBy('code')->get();
+        $alternative = Alternative::orderBy('id')->get();
 
         return view('dashboard.alternative.main', [
             'alternative' => $alternative
@@ -56,8 +56,8 @@ class AlternativeController extends Controller
      */
     public function show()
     {
-        $alternative = Alternative::orderBy('code')->get();
-        $criteria = Criteria::orderBy('code')->get();
+        $alternative = Alternative::orderBy('id')->get();
+        $criteria = Criteria::orderBy('id')->get();
 
         return view('dashboard.alternativeWeight.main', [
             'alternative' => $alternative,

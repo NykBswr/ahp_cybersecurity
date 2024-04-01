@@ -14,7 +14,7 @@ class CriteriaController extends Controller
 {
     public function index()
     {
-        $criteria = Criteria::orderBy('code')->get();
+        $criteria = Criteria::orderBy('id')->get();
 
         return view('dashboard.criteria.main', [
             'criteria' => $criteria
@@ -43,13 +43,13 @@ class CriteriaController extends Controller
         // Cek apakah kolom sudah ada, jika belum tambahkan kolom baru
         Schema::table('criteria_weights', function (Blueprint $table) use ($columnName) {
             if (!Schema::hasColumn('criteria_weights', $columnName)) {
-                $table->decimal($columnName, 8, 2)->nullable()->after('id');
+                $table->float($columnName)->nullable()->after('id');
             }
         });
 
         Schema::table('alternatives', function (Blueprint $table) use ($columnName2) {
             if (!Schema::hasColumn('alternatives', $columnName2)) {
-                $table->decimal($columnName2, 8, 2)->nullable()->after('id');
+                $table->integer($columnName2)->nullable()->after('id');
             }
         });
 

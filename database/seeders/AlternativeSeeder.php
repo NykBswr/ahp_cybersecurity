@@ -24,7 +24,7 @@ class AlternativeSeeder extends Seeder
             // Tambahkan kolom jika belum ada
             Schema::table('alternatives', function (Blueprint $table) use ($columnName) {
                 if (!Schema::hasColumn('alternatives', $columnName)) {
-                    $table->decimal($columnName, 8, 2)->nullable()->after('id');
+                    $table->integer($columnName)->nullable()->after('id');
                 }
             });
         }

@@ -74,24 +74,28 @@
                         <th class="bg-dark px-6 py-4 text-center text-xl text-white">
                             {{ $criterion1->name }}
                         </th>
+                        @php
+                            // Menyimpan total dari masing-masing kolom
+                            $columnTotals = [];
+
+                            // Iterasi untuk setiap kriteria
+                            foreach ($criteria as $criterion3) {
+                                $weight2 = $value->where('id', $criterion3->id)->first();
+                                foreach ($criteria as $criterion4) {
+                                    $colName2 = 'W' . $criterion4->id;
+                                    $columnTotals[$criterion4->id] = isset($columnTotals[$criterion4->id])
+                                        ? $columnTotals[$criterion4->id] +
+                                            (isset($weight2->$colName2) ? $weight2->$colName2 : 0)
+                                        : (isset($weight2->$colName2)
+                                            ? $weight2->$colName2
+                                            : 0);
+                                }
+                            }
+                        @endphp
                         @foreach ($criteria as $criterion2)
                             @php
                                 $colName = 'W' . $criterion2->id;
                                 $weight = $value->where('id', $criterion1->id)->first();
-                                // Menyimpan total dari masing-masing kolom
-                                $columnTotals = [];
-                                foreach ($criteria as $criterion3) {
-                                    $weight2 = $value->where('id', $criterion3->id)->first();
-                                    foreach ($criteria as $criterion4) {
-                                        $colName2 = 'W' . $criterion4->id;
-                                        $columnTotals[$criterion4->id] = isset($columnTotals[$criterion4->id])
-                                            ? $columnTotals[$criterion4->id] +
-                                                (isset($weight2->$colName2) ? $weight2->$colName2 : 0)
-                                            : (isset($weight2->$colName2)
-                                                ? $weight2->$colName2
-                                                : 0);
-                                    }
-                                }
                             @endphp
                             <td class="px-6 py-4 text-center">
                                 {{ $columnTotals[$criterion2->id] != 0 ? number_format($weight->$colName / $columnTotals[$criterion2->id], 4) : 0 }}
@@ -100,6 +104,7 @@
                     </tr>
                 @endforeach
             </tbody>
+
         </table>
     </div>
 
@@ -120,74 +125,75 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $countCriteria = count($criteria);
+
+                    // Menyimpan total bobot prioritas
+                    $totalPriorityWeights = [];
+
+                    // Iterasi untuk setiap kriteria
+                    foreach ($criteria as $criterion1) {
+                        // Inisialisasi total bobot prioritas untuk kriteria saat ini
+                        $totalPriorityWeightForCriterion = 0;
+
+                        // Perhitungan bobot prioritas untuk setiap kriteria pada baris saat ini
+                        foreach ($criteria as $criterion2) {
+                            $colName = 'W' . $criterion2->id;
+                            $weight = $value->where('id', $criterion1->id)->first();
+                            $priorityWeight = isset($weight->$colName)
+                                ? $weight->$colName / $columnTotals[$criterion2->id]
+                                : 0;
+                            // Menambahkan bobot prioritas ke total bobot prioritas untuk kriteria saat ini
+                            $totalPriorityWeightForCriterion += $priorityWeight;
+                        }
+
+                        // Menambahkan total bobot prioritas kriteria saat ini ke dalam array
+                        $totalPriorityWeights[$criterion1->id] = number_format(
+                            $totalPriorityWeightForCriterion / $countCriteria,
+                            4,
+                        );
+                    }
+
+                    // Menyimpan total ukuran konsistensi
+                    $totalConsistencyMeasure = [];
+
+                    // Iterasi untuk setiap kriteria
+                    foreach ($criteria as $criterion6) {
+                        // Inisialisasi total ukuran konsistensi untuk kriteria saat ini
+                        $totalConsistencyMeasureForCriterion = 0;
+
+                        // Perhitungan ukuran konsistensi untuk setiap kriteria pada baris saat ini
+                        foreach ($criteria as $criterion7) {
+                            $colName3 = 'W' . $criterion7->id;
+                            $weight3 = $value->where('id', $criterion6->id)->first();
+                            $consistencyMeasure = isset($weight3->$colName3)
+                                ? $weight3->$colName3 * $totalPriorityWeights[$criterion7->id]
+                                : 0;
+                            // Menambahkan ukuran konsistensi ke total ukuran konsistensi untuk kriteria saat ini
+                            $totalConsistencyMeasureForCriterion += $consistencyMeasure;
+                        }
+
+                        // Menambahkan total ukuran konsistensi kriteria saat ini ke dalam array
+                        $totalConsistencyMeasure[$criterion6->id] =
+                            $totalConsistencyMeasureForCriterion / $totalPriorityWeights[$criterion6->id];
+                    }
+                @endphp
+
                 @foreach ($criteria as $criterion1)
                     <tr class="bg-white hover:bg-gray-50">
                         <th class="bg-dark px-6 py-4 text-center text-xl text-white">
                             {{ $criterion1->name }}
                         </th>
-                        @php
-                            $countCriteria = count($criteria);
-
-                            // Menyimpan bobot prioritas
-                            $totalPriorityWeights = [];
-
-                            // Iterasi untuk setiap kriteria
-                            foreach ($criteria as $criterion2) {
-                                // Inisialisasi total bobot prioritas untuk kriteria saat ini
-                                $totalPriorityWeightForCriterion = 0;
-
-                                // Perhitungan bobot prioritas untuk setiap kriteria pada baris saat ini
-                                foreach ($criteria as $criterion3) {
-                                    $colName = 'W' . $criterion3->id;
-                                    $weight = $value->where('id', $criterion2->id)->first();
-                                    $priorityWeight = isset($weight->$colName)
-                                        ? $weight->$colName / $columnTotals[$criterion3->id]
-                                        : 0;
-                                    // Menambahkan bobot prioritas ke total bobot prioritas untuk kriteria saat ini
-                                    $totalPriorityWeightForCriterion += $priorityWeight;
-                                }
-
-                                // Menambahkan total bobot prioritas kriteria saat ini ke dalam array
-                                $totalPriorityWeights[$criterion2->id] =
-                                    $totalPriorityWeightForCriterion / $countCriteria;
-                            }
-
-                            // Menyimpan bobot prioritas
-                            $totalConsistencyMeasure = [];
-
-                            // Iterasi untuk setiap kriteria
-                            foreach ($criteria as $criterion6) {
-                                // Inisialisasi total bobot prioritas untuk kriteria saat ini
-                                $totalConsistencyMeasureForCriterion = 0;
-
-                                // Perhitungan bobot prioritas untuk setiap kriteria pada baris saat ini
-                                foreach ($criteria as $criterion7) {
-                                    $colName3 = 'W' . $criterion7->id;
-                                    $weight3 = $value->where('id', $criterion6->id)->first();
-                                    $consistencyMeasure = isset($weight3->$colName3)
-                                        ? $weight3->$colName3 * $totalPriorityWeights[$criterion7->id]
-                                        : 0;
-                                    // Menambahkan bobot prioritas ke total bobot prioritas untuk kriteria saat ini
-                                    $totalConsistencyMeasureForCriterion += $consistencyMeasure;
-                                }
-
-                                // Menambahkan total bobot prioritas kriteria saat ini ke dalam array
-                                $totalConsistencyMeasure[$criterion6->id] = number_format(
-                                    $totalConsistencyMeasureForCriterion / $totalPriorityWeights[$criterion6->id],
-                                    4,
-                                );
-                            }
-                        @endphp
                         <td class="px-6 py-4 text-center">
-                            {{ number_format($totalPriorityWeights[$criterion1->id], 4) }}
+                            {{ $totalPriorityWeights[$criterion1->id] }}
                         </td>
-
                         <td class="px-6 py-4 text-center">
                             {{ number_format($totalConsistencyMeasure[$criterion1->id], 4) }}
                         </td>
                     </tr>
                 @endforeach
             </tbody>
+
         </table>
     </div>
 

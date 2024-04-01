@@ -13,16 +13,18 @@ class CalculationController extends Controller
      */
     public function index()
     {
-        $criteria = Criteria::orderBy('code')->get();
-        $weight = CriteriaWeight::get();
-        $alternative = Alternative::orderBy('code')->get();
+        $criteria = Criteria::orderBy('id')->get();
+        $weights = CriteriaWeight::get();
+        $alternative = Alternative::orderBy('id')->get();
+
 
         return view('dashboard.calculation.main', [
             'criteria' => $criteria,
-            'value' => $weight,
-            'alternative' => $alternative
+            'value' => $weights,
+            'alternative' => $alternative,
         ]);
     }
+
 
     /**
      * Show the form for creating a new resource.
