@@ -2,37 +2,16 @@
 
 @section('container')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
-    <body class="h-screen w-full scroll-smooth bg-background-profile bg-cover bg-no-repeat object-fill">
-        <nav class="navbar z-[25] h-auto w-full py-10">
-            <div class="subNav flex flex-row items-center justify-center">
-                <div class="flex px-5 py-3">
-                    <a class="isiNav1 text-center text-2xl font-semibold uppercase text-white" href="#home">Home</a>
-                    <a class="isiNav2 text-center text-2xl font-semibold uppercase text-white" href="#about">About</a>
-                    <a class="isiNav3 text-center text-2xl font-semibold uppercase text-white" href="/dashboard">Analyst</a>
-                </div>
-            </div>
-        </nav>
-        <section id="home" class="homeSec h-screen w-full">
-            <div class="absolute flex w-full items-center justify-center">
-                <img class="h-auto w-auto" src="{{ URL::asset('/img/Stars Background.svg') }}" alt="">
-            </div>
-            <div class="flex flex-col items-center">
-                <div class="absolute mt-12 flex flex-col items-center justify-start">
-                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">We Help
-                        Analyze</h1>
-                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">Best
-                        Security</h1>
-                    <h1 class="bg-clip-text text-center text-8xl font-bold text-white">Investment
-                    </h1>
-                </div>
-                <div class="mt-64 flex items-center justify-center">
-                    <img class="absolute mb-14" src="{{ URL::asset('/img/Key.svg') }}" alt="">
-                    <img class="absolute mb-14" src="{{ URL::asset('/img/Stars.svg') }}" alt="">
-                    <img class="" src="{{ URL::asset('/img/Planet.svg') }}" alt="">
-                </div>
-            </div>
-        </section>
+    <body class="max-w-screen h-screen w-full scroll-smooth bg-background-profile bg-cover bg-no-repeat object-fill">
+
+        @include('profile-kelompok.partials.nav')
+        @include('profile-kelompok.home')
+        @include('profile-kelompok.aboutUs')
+        @include('profile-kelompok.ourTeam')
+        @include('profile-kelompok.partials.footers')
+
         <script>
             const navbar = document.querySelector('.navbar');
             const subNav = document.querySelector('.subNav');
@@ -53,8 +32,8 @@
                 subNav.classList.toggle('bg-opacity-5', scrolledPastNavbar);
                 subNav.classList.toggle('py-2', scrolledPastNavbar);
 
-                navbar.classList.toggle('h-auto', !scrolledPastNavbar);
-                navbar.classList.toggle('mb-14', scrolledPastNavbar);
+                navbar.classList.toggle('h-auto', scrolledPastNavbar);
+                navbar.classList.toggle('mb-0', scrolledPastNavbar);
                 navbar.classList.toggle('bottom-0', scrolledPastNavbar);
                 navbar.classList.toggle('bg-none', scrolledPastNavbar);
                 navbar.classList.toggle('flex', scrolledPastNavbar);
@@ -80,178 +59,9 @@
                 });
             });
         </script>
-        <section id="about" class="h-screen w-full px-20 py-36">
-            <h1 class="text-center text-6xl font-bold text-white">About</h1>
-            <div class="flex py-20">
-                <div class="w-1/2 px-10">
-                    <h1 class="text-4xl font-semibold text-white">Lorem Ipsum</h1>
-                    <h1 class="text-4xl font-semibold text-white">Dolor Sit Amet, Consectetur</h1>
-                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet, consectetur
-                        adipiscing
-                        elit. Ut
-                        pellentesque lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque lorem ipsum dolor
-                        sit amet consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-                        pellentesque lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque lorem ipsum dolor
-                        sit amet consectetur adipiscing elit.</p>
-
-                    <div id="animation-carousel" class="relative mt-14 w-full" data-carousel="static">
-                        <!-- Carousel wrapper -->
-                        <div class="relative h-[13rem] overflow-hidden rounded-lg">
-                            <!-- Item 1 -->
-                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
-                                data-carousel-item>
-                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
-                                    <h1 class="text-center text-2xl font-semibold text-white">Lorem Ipsum</h1>
-                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing
-                                        elit. Ut
-                                        pellentesque lorem ipsum dolor sit
-                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
-                                data-carousel-item>
-                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
-                                    <h1 class="text-center text-2xl font-semibold text-white">LNAYA</h1>
-                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing
-                                        elit. Ut
-                                        pellentesque lorem ipsum dolor sit
-                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="h-[13rem] w-full items-center justify-center rounded-xl bg-gradient-to-tr from-[#BB381E] to-[#B0A5F7] p-1 shadow-lg shadow-orange-400/50"
-                                data-carousel-item>
-                                <div class="h-[12.5rem] rounded-xl bg-darker px-10 py-7">
-                                    <h1 class="text-center text-2xl font-semibold text-white">Lorem Ipsum</h1>
-                                    <p class="mt-5 text-justify text-lg font-normal text-white">Lorem ipsum dolor sit amet,
-                                        consectetur
-                                        adipiscing
-                                        elit. Ut
-                                        pellentesque lorem ipsum dolor sit
-                                        amet consectetur adipiscing elit pellentesque lorem ipsum dolor adipiscing elit.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Slider indicators -->
-                        {{-- <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
-                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="true"
-                                aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="false"
-                                aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                            <button type="button" class="h-3 w-3 rounded-full border border-white" aria-current="false"
-                                aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                        </div> --}}
-                        <!-- Slider controls -->
-                        <button type="button"
-                            class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-                            data-carousel-prev>
-                            <span class="inline-flex h-full w-36 items-center justify-center bg-transparent">
-                                <span class="sr-only">Previous</span>
-                            </span>
-                        </button>
-                        <button type="button"
-                            class="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"
-                            data-carousel-next>
-                            <span class="inline-flex h-full w-36 items-center justify-center bg-transparent">
-                                <span class="sr-only">Next</span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-                <div class="flex w-1/2 flex-col items-center justify-center px-10">
-                    <img class="absolute z-20 mb-60 h-auto w-80" src="{{ URL::asset('/img/Shield.svg') }}" alt="">
-                    <img class="absolute z-10 mb-20 h-auto w-80" src="{{ URL::asset('/img/Top.svg') }}" alt="">
-                    <img class="absolute z-10 mt-40 h-auto w-80" src="{{ URL::asset('/img/Buttom.svg') }}" alt="">
-                    <img class="z-[5] mt-40 h-auto w-full" src="{{ URL::asset('/img/Buttom Planet.svg') }}" alt="">
-                </div>
-            </div>
-        </section>
-        <section id="ourteam" class="mt-20 h-screen w-full px-20 py-24">
-            <div class="flex">
-                <div class="w-1/2 px-10">
-                    <h1 class="mb-10 text-start text-6xl font-bold text-white">Our Team</h1>
-                    <div class="flex items-center justify-start pl-64">
-                        <div class="mt-56 flex flex-col items-center justify-center">
-                            <img class="absolute z-10 mb-2" src="{{ URL::asset('/img/First layer.svg') }}" alt="">
-                            <img class="absolute z-10" src="{{ URL::asset('/img/Second Layer.svg') }}" alt="">
-                            <img class="absolute z-[20] mt-10" src="{{ URL::asset('/img/Boxes.svg') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="w-1/2">
-                    <div class="flex">
-                        <div class='relative mr-0 mt-5 h-full w-[20rem] lg:mr-5'>
-                            <div class='shadowBotPurple relative z-[1] h-[20rem] w-[20rem] bg-cover bg-no-repeat p-5'>
-                                <div class='profileStat flex h-full w-full items-end'>
-                                    <div class='h-auto w-full items-center justify-center'>
-                                        <div class='adStat flex w-full flex-row items-stretch justify-center'>
-                                            <h1 class='text-center text-3xl font-bold text-white'>Lintang Sabrang
-                                                Kinasih Basuki</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img class='absolute left-0 top-0 h-[20rem] w-[20rem] bg-cover bg-no-repeat'
-                                src='/img/Rafik.svg'>
-                        </div>
-                        <div class='relative mr-0 mt-5 h-full w-[20rem] lg:mr-5'>
-                            <div class='shadowBotPurple relative z-[1] h-[20rem] w-[20rem] bg-cover bg-no-repeat p-5'>
-                                <div class='profileStat flex h-full w-full items-end'>
-                                    <div class='h-auto w-full items-center justify-center'>
-                                        <div class='adStat flex w-full flex-row items-stretch justify-center'>
-                                            <h1 class='mb-5 text-center text-3xl font-bold text-white'>Rafik Septiana</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img class='absolute left-0 top-0 h-[20rem] w-[20rem] bg-cover bg-no-repeat'
-                                src='/img/Rafik.svg'>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class='relative mr-0 mt-5 h-full w-[20rem] lg:mr-5'>
-                            <div class='shadowBotPurple relative z-[1] h-[20rem] w-[20rem] bg-cover bg-no-repeat p-5'>
-                                <div class='profileStat flex h-full w-full items-end'>
-                                    <div class='h-auto w-full items-center justify-center'>
-                                        <div class='adStat flex w-full flex-row items-stretch justify-center'>
-                                            <h1 class='mb-5 text-center text-3xl font-bold text-white'>Nayaka Baswara</h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img class='absolute left-0 top-0 h-[20rem] w-[20rem] bg-cover bg-no-repeat'
-                                src='/img/Rafik.svg'>
-                        </div>
-                        <div class='relative mr-0 mt-5 h-full w-[20rem] lg:mr-5'>
-                            <div class='shadowBotPurple relative z-[1] h-[20rem] w-[20rem] bg-cover bg-no-repeat p-5'>
-                                <div class='profileStat flex h-full w-full items-end'>
-                                    <div class='h-auto w-full items-center justify-center'>
-                                        <div class='adStat flex w-full flex-row items-stretch justify-center'>
-                                            <h1 class='text-center text-3xl font-bold text-white'>Janetha Maesha Purba
-                                            </h1>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <img class='absolute left-0 top-0 h-[20rem] w-[20rem] bg-cover bg-no-repeat'
-                                src='/img/Rafik.svg'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer class="w-full px-20 pb-10">
-            <div class="border-2 border-b border-purple2"></div>
-            <h1 class="pt-10 text-center font-bold text-white">© 2024 NykBswr. All rights reserved.</h1>
-        </footer>
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
     </body>
